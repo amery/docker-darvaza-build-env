@@ -1,0 +1,5 @@
+/.docker-run-cache
+/.pnpm*
+/bin
+/lib
+/pkg

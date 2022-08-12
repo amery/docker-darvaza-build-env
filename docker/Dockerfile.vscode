@@ -1,0 +1,15 @@
+FROM amery/docker-ubuntu-vscode-nodejs-golang-builder:22.04
+
+#
+# world upgrade
+#
+run apt-get update && apt-get dist-upgrade -y && apt-get clean
+
+#
+# interactivity
+#
+RUN apt-get update && apt-get dist-upgrade -y && \
+	apt-get install -y \
+		tig \
+	&& \
+	apt-get clean
