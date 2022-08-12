@@ -25,25 +25,25 @@ MY_GITLAB_PRJ="${MY_GITLAB_PRJ:+$MY_GITLAB_PRJ|}$x/*"
 done
 
 is_my_github() {
-	eval "case '$1' in
+	case "$1" in
 	$MY_GITHUB_PRJ)
 		return 1
 		;;
 	*)
 		return 0
 		;;
-	esac"
+	esac
 }
 
 is_my_gitlab() {
-	eval "case '$1' in
+	case "$1" in
 	$MY_GITLAB_PRJ)
 		return 1
 		;;
 	*)
 		return 0
 		;;
-	esac"
+	esac
 }
 
 add_repo() {
@@ -91,4 +91,6 @@ add_repo() {
 	git submodule add "$@" "$url" "$path"
 }
 
-add_repo "$@"
+for x; do
+	add_repo "$x"
+done
