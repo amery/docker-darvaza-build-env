@@ -43,3 +43,19 @@ fetch_bin() {
 #
 [ -x "$(which x)" ] || fetch_bin bin/x
 [ -x "$(which docker-builder-run)" ] || fetch_bin docker/run.sh docker-builder-run
+
+# ssh key
+#
+KP=$HOME/.ssh/id_
+for t in rsa ecdsa; do
+	K="$KP$t"
+	if [ -s "$K.pub" ]; then
+		cat "$K.pub"
+		K=
+		break
+	fi
+done
+if [ -n "$K" ]; then
+	ssh-keygen -t ecdsa -q -f "$K" -N ""
+	cat "$K.pub"
+fi
