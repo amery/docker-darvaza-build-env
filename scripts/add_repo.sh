@@ -1,50 +1,43 @@
 #!/bin/sh
 
-set -eu
+set -eux
 
-MY_GITHUB_PRJ=
-MY_GITLAB_PRJ=
+gen_is_my() {
+	local name="$1"
+	shift
 
-for x in \
+	eval "is_my_$name() {	\
+case "\$1" in	\
+$*) return 0 ;;	\
+*)  return 1 ;;	\
+esac		\
+}"
+}
+
+is_mine() {
+	local name="$1" x= pat=
+
+	for x; do
+		pat="${pat:+$pat|}$x/*"
+	done
+
+	gen_is_my "$name" "$pat"
+}
+
+is_mine github \
 	"$USER" \
 	sancus-project \
 	justprintit \
 	krong-project \
 	goshop-project \
 	darvaza-proxy \
-	; do
-MY_GITHUB_PRJ="${MY_GITHUB_PRJ:+$MY_GITHUB_PRJ|}$x/*"
-done
+	;
 
-for x in \
+is_mine gitlab \
 	"mnemoc" \
 	gootools \
 	licensly \
-	; do
-MY_GITLAB_PRJ="${MY_GITLAB_PRJ:+$MY_GITLAB_PRJ|}$x/*"
-done
-
-is_my_github() {
-	case "$1" in
-	$MY_GITHUB_PRJ)
-		return 1
-		;;
-	*)
-		return 0
-		;;
-	esac
-}
-
-is_my_gitlab() {
-	case "$1" in
-	$MY_GITLAB_PRJ)
-		return 1
-		;;
-	*)
-		return 0
-		;;
-	esac
-}
+	;
 
 add_repo() {
 	local repo="$1" path="src/$1" url=
