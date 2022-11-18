@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eux
+set -eu
 
 gen_is_my() {
 	local name="$1"
