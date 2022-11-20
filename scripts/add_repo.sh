@@ -85,5 +85,6 @@ add_repo() {
 }
 
 for x; do
+	x=$(echo "$x" | sed -e 's,^\(ssh\|http\|https\)://\([^/@]\+@\)\?,,')
 	add_repo "$x"
 done
