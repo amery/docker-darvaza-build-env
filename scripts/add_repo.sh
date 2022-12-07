@@ -36,6 +36,10 @@ is_mine gitlab \
 	"$USER" \
 	;
 
+is_mine bitbucket \
+	"$USER" \
+	;
+
 add_repo() {
 	local repo="$1" path="src/$1" url=
 	local dom=${repo%%/*}
@@ -73,6 +77,11 @@ add_repo() {
 		;;
 	gitlab.com)
 		if is_my_gitlab "$prj"; then
+			url="ssh://git@$repo.git"
+		fi
+		;;
+	bitbucket.org)
+		if is_my_bitbucket "$prj"; then
 			url="ssh://git@$repo.git"
 		fi
 		;;
