@@ -6,12 +6,16 @@ gen_is_my() {
 	local name="$1"
 	shift
 
-	eval "is_my_$name() {	\
+	if [ $# -gt 0 ]; then
+		eval "is_my_$name() {	\
 case "\$1" in	\
 $*) return 0 ;;	\
 *)  return 1 ;;	\
 esac		\
 }"
+	else
+		eval "is_my_$name() { return 1; }"
+	fi
 }
 
 is_mine() {
