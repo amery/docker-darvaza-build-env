@@ -30,17 +30,10 @@ is_mine() {
 
 is_mine github \
 	"$USER" \
-	sancus-project \
-	justprintit \
-	krong-project \
-	goshop-project \
-	darvaza-proxy \
 	;
 
 is_mine gitlab \
-	"mnemoc" \
-	gootools \
-	licensly \
+	"$USER" \
 	;
 
 add_repo() {
