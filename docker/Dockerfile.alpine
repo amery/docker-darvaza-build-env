@@ -1,4 +1,4 @@
-FROM quay.io/amery/docker-golang-builder:latest
+FROM quay.io/amery/docker-golang-builder:multi
 
 # interactivity
 RUN apk --update upgrade -U && apk --no-cache add \
