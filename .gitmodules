@@ -1,0 +1,36 @@
+[submodule "src/darvaza.org/core"]
+	path = src/darvaza.org/core
+	url = ../../darvaza-proxy/core.git
+[submodule "src/darvaza.org/kube"]
+	path = src/darvaza.org/kube
+	url = ../../darvaza-proxy/kube.git
+[submodule "src/darvaza.org/slog"]
+	path = src/darvaza.org/slog
+	url = ../../darvaza-proxy/slog.git
+[submodule "src/darvaza.org/resolver"]
+	path = src/darvaza.org/resolver
+	url = ../../darvaza-proxy/resolver.git
+[submodule "src/darvaza.org/cache"]
+	path = src/darvaza.org/cache
+	url = ../../darvaza-proxy/cache.git
+[submodule "src/darvaza.org/darvaza"]
+	path = src/darvaza.org/darvaza
+	url = ../../darvaza-proxy/darvaza.git
+[submodule "src/darvaza.org/sidecar"]
+	path = src/darvaza.org/sidecar
+	url = ../../darvaza-proxy/sidecar.git
+[submodule "src/darvaza.org/acmefy"]
+	path = src/darvaza.org/acmefy
+	url = ../../darvaza-proxy/acmefy.git
+[submodule "src/darvaza.org/middleware"]
+	path = src/darvaza.org/middleware
+	url = ../../darvaza-proxy/middleware.git
+[submodule "src/darvaza.org/gnocco"]
+	path = src/darvaza.org/gnocco
+	url = ../../darvaza-proxy/gnocco.git
+[submodule "src/darvaza.org/wilee"]
+	path = src/darvaza.org/wilee
+	url = ../../darvaza-proxy/wilee.git
+[submodule "src/darvaza.org/gossipcache"]
+	path = src/darvaza.org/gossipcache
+	url = ../../darvaza-proxy/gossipcache.git
