@@ -30,6 +30,7 @@ is_mine() {
 
 is_mine github \
 	"$USER" \
+	darvaza-proxy \
 	;
 
 is_mine gitlab \
@@ -65,6 +66,10 @@ add_repo() {
 		prj="goshop-project/$prj"
 		repo="$dom/$prj"
 		;;
+	darvaza.org)
+		dom="github.com"
+		prj="darvaza-proxy/$prj"
+		repo="$dom/$prj"
 	esac
 
 	url="https://$repo"
@@ -72,7 +77,7 @@ add_repo() {
 	case "$dom" in
 	github.com)
 		if is_my_github "$prj"; then
-			url="ssh://git@$repo.git"
+			url="../../$prj.git"
 		fi
 		;;
 	gitlab.com)
